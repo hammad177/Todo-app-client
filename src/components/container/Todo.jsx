@@ -2,9 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import {
   Heading,
-  MainContainer,
   TaskListHeader,
   TaskListContainer,
+  CenterDiv,
 } from "../../style-components";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { purple } from "@mui/material/colors";
@@ -72,16 +72,17 @@ const Todo = () => {
         </ThemeProvider>
       </TaskListHeader>
       {state.isLoading && <Loading />}
-      {!todoFilter?.length && (
-        <MainContainer>
+      {!todoFilter?.length ? (
+        <CenterDiv>
           <Heading>No Todo Found</Heading>
-        </MainContainer>
-      )}
+        </CenterDiv>
+      ) : null}
       <TaskListContainer>
-        {todoFilter?.length &&
-          todoFilter.map((val, ind) => (
-            <Accordion key={val.id} val={val} ind={ind} />
-          ))}
+        {todoFilter?.length
+          ? todoFilter.map((val, ind) => (
+              <Accordion key={val.id} val={val} ind={ind} />
+            ))
+          : null}
       </TaskListContainer>
     </>
   );

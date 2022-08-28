@@ -1,11 +1,11 @@
 import React from "react";
-import { MainContainer } from "../style-components";
+import { CenterDiv } from "../style-components";
 
 const Loading = () => {
   return (
-    <MainContainer>
+    <CenterDiv>
       <div className="dot-overtaking"></div>
-    </MainContainer>
+    </CenterDiv>
   );
 };
 

@@ -33,7 +33,7 @@ export const DashboardContentContainer = styled.div`
 
 export const DashboardContent = styled.div`
   width: 90%;
-  height: 90%;
+  height: 85%;
   margin: auto;
 `;
 
@@ -116,6 +116,14 @@ export const CardNumber = styled.div`
   font-size: 26px;
   font-wight: 600;
   color: #444;
+`;
+
+export const CenterDiv = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const AccordionTitle = styled.div`
