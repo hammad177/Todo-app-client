@@ -87,10 +87,11 @@ const Dashboard = () => {
       </CardsContainer>
       <Heading>Highlight Task</Heading>
       <TaskListContainer>
-        {HighlightTodo.length &&
-          HighlightTodo.map((val, ind) => {
-            return <Accordion key={val.id} val={val} ind={ind} />;
-          })}
+        {HighlightTodo.length
+          ? HighlightTodo.map((val, ind) => {
+              return <Accordion key={val.id} val={val} ind={ind} />;
+            })
+          : null}
       </TaskListContainer>
     </>
   );

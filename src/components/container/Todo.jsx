@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import GlobalContext from "../../context/GlobalContext";
 import {
   Heading,
@@ -14,13 +14,18 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Loading from "../Loading";
+import { GetAllTask } from "../../context/GlobalAction";
 
 const Todo = () => {
-  const { state } = useContext(GlobalContext);
+  const { state, dispatch } = useContext(GlobalContext);
   const [sort, setSort] = useState("");
   const handleChange = (event) => {
     setSort(event.target.value);
   };
+
+  useEffect(() => {
+    GetAllTask(dispatch);
+  }, [dispatch]);
 
   const innerTheme = createTheme({
     palette: {
