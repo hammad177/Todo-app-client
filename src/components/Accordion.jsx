@@ -82,9 +82,19 @@ const Accordion = ({ val, ind }) => {
   return (
     <>
       <Collapsible
-        trigger={<Title ind={ind} val={val} icon={<span>&#43;</span>} />}
+        trigger={
+          <Title
+            ind={ind}
+            val={val}
+            icon={<span style={{ cursor: "pointer" }}>&#43;</span>}
+          />
+        }
         triggerWhenOpen={
-          <Title ind={ind} val={val} icon={<span>&#215;</span>} />
+          <Title
+            ind={ind}
+            val={val}
+            icon={<span style={{ cursor: "pointer" }}>&#215;</span>}
+          />
         }
       >
         <AccordionDescription>

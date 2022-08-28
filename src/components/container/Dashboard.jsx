@@ -53,12 +53,12 @@ const Dashboard = () => {
             sx={{ m: 1, minWidth: 130, marginRight: "20px" }}
             size="small"
           >
-            <InputLabel id="sort-by">Sort by</InputLabel>
+            <InputLabel id="range">Range</InputLabel>
             <Select
-              labelId="sort-by"
-              id="sort-by"
+              labelId="range"
+              id="range"
               value={sort}
-              label="Sort By"
+              label="Range"
               onChange={handleChange}
             >
               <MenuItem value="">
