@@ -5,15 +5,18 @@ const axiosInstance = axios.create({
 });
 
 const refreshToken = async () => {
-  const token = localStorage.getItem("rf-token");
-  const { data } = await axiosInstance.post("/auth/refresh-token", { token });
-  if (data.status) {
-    localStorage.setItem("xx-token", data.accessToken);
-    return data.accessToken;
+  try {
+    const token = localStorage.getItem("rf-token");
+    const { data } = await axiosInstance.post("/auth/refresh-token", { token });
+    if (data.status) {
+      localStorage.setItem("xx-token", data.accessToken);
+      return data.accessToken;
+    }
+  } catch (error) {
+    localStorage.removeItem("rf-token");
+    localStorage.removeItem("xx-token");
+    window.location.reload();
   }
-  localStorage.removeItem("rf-token");
-  localStorage.removeItem("xx-token");
-  window.location.reload();
 };
 
 // Response interceptor for API calls
