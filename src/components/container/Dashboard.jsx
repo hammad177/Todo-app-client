@@ -71,23 +71,25 @@ const Dashboard = () => {
         </ThemeProvider>
       </TaskListHeader>
       {state.isLoading && <Loading />}
-      <CardsContainer>
-        <Card>
-          <CardTitle>All Tasks</CardTitle>
-          <CardNumber>{state?.todo?.length}</CardNumber>
-        </Card>
-        <Card>
-          <CardTitle>Complete Tasks</CardTitle>
-          <CardNumber>{CompleteTasks?.length}</CardNumber>
-        </Card>
-        <Card>
-          <CardTitle>Pending Tasks</CardTitle>
-          <CardNumber>{PendingTasks?.length}</CardNumber>
-        </Card>
-      </CardsContainer>
+      {!state.isLoading && (
+        <CardsContainer>
+          <Card>
+            <CardTitle>All Tasks</CardTitle>
+            <CardNumber>{state?.todo?.length}</CardNumber>
+          </Card>
+          <Card>
+            <CardTitle>Complete Tasks</CardTitle>
+            <CardNumber>{CompleteTasks?.length}</CardNumber>
+          </Card>
+          <Card>
+            <CardTitle>Pending Tasks</CardTitle>
+            <CardNumber>{PendingTasks?.length}</CardNumber>
+          </Card>
+        </CardsContainer>
+      )}
       <Heading>Highlight Task</Heading>
       <TaskListContainer>
-        {HighlightTodo.length
+        {!state.isLoading && HighlightTodo.length
           ? HighlightTodo.map((val, ind) => {
               return <Accordion key={val.id} val={val} ind={ind} />;
             })

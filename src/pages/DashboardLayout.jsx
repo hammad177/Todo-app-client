@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import SideNav from "../components/SideNav";
 import { LogoutUser, GetAllTask } from "../context/GlobalAction";
 import GlobalContext from "../context/GlobalContext";
 import AuthRoutes from "../routes/AuthRoutes";
@@ -70,6 +71,7 @@ const DashboardLayout = () => {
       </DashboardNavigation>
       <DashboardContentContainer>
         <DashboardTopBar>
+          <SideNav />
           <SearchInput type="text" placeholder="search ..." />
           <LogoutButton onClick={handleLogout}>{btnTxt}</LogoutButton>
         </DashboardTopBar>

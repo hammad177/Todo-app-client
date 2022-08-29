@@ -5,10 +5,12 @@ import { FormButton } from "./FormStyle";
 export const DashboardContainer = styled.div`
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-color: #e9f1f0;
   display: grid;
   grid-template-columns: 20% 80%;
+  @media (max-width: 1024px) {
+    display: block;
+  }
 `;
 
 export const DashboardTopBar = styled.div`
@@ -25,10 +27,15 @@ export const DashboardTopBar = styled.div`
 export const DashboardNavigation = styled.div`
   grid-template-column: 1/2;
   border-right: 1px solid #aaa;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const DashboardContentContainer = styled.div`
   grid-template-column: 2/3;
+  background-color: #e9f1f0;
+  overflow: auto;
 `;
 
 export const DashboardContent = styled.div`
@@ -42,13 +49,26 @@ export const Heading = styled.h1`
   color: #465671;
 `;
 
+export const SideBarNav = styled.div`
+  display: none;
+  @media (max-width: 1024px) {
+    display: block;
+  }
+`;
+
 export const SearchInput = styled.input`
-  width: 300px;
+  max-width: 200px;
+  width: 50vw;
+  min-width: 150px;
+  margin-right: 20px;
   padding: 8px 10px;
   font-size: 16px;
   border: 1px solid transparent;
   border-radius: 5px;
   background-color: #fff;
+  @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 export const LogoutButton = styled(FormButton)`
@@ -58,6 +78,7 @@ export const LogoutButton = styled(FormButton)`
 
 export const DashboardLinksContainer = styled.div`
   width: 100%;
+  max-width: 300px;
   padding: 20px 10px;
   display: flex;
   align-items: center;
@@ -79,6 +100,9 @@ export const DashboardLink = styled(NavLink)`
   font-weight: 500;
   color: #666;
   cursor: pointer;
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 `;
 
 export const CardsContainer = styled.div`
@@ -141,6 +165,10 @@ export const TaskListHeader = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 420px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 `;
 
 export const AccordionDescription = styled.div`
